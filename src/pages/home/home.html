@@ -1,53 +1,59 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Weather
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar>
+      <ion-title>
+          <h1 style="color:black">Weather</h1>
+      </ion-title>
+    </ion-navbar>
+   </ion-header>
+   
+   <ion-content padding>
+    <ion-searchbar (ionInput)="getcity($event)" placeholder="Search Place"></ion-searchbar>
+    <ion-list>
+      <ion-item *ngFor="let item of citysearch" (click)="SearchCity(item.id)">
+        {{item.name}},{{item.country}}
+      </ion-item>
 
-<ion-content padding>
-  <ion-searchbar (ionInput)="getData($event)" placeholder="Search Place"></ion-searchbar>
-  <button ion-button (click)="getData()">refresh</button> 
-  • COORD : [
-  "lon": {{(data | async)?.coord.lon}},
-  "lat": {{(data | async)?.coord.lat}}].
-  <p></p>
-   • WEATHER : [
-  "id": {{(data | async)?.weather[0].id}},
-  "main": "{{(data | async)?.weather[0].main}}",
-  "description": "{{(data | async)?.weather[0].description}}",
-  "icon": "{{(data | async)?.weather[0].icon}}"],
-  [ "id": {{(data | async)?.weather[1].id}},
-  "main": "{{(data | async)?.weather[1].main}}",
-  "description": "{{(data | async)?.weather[1].description}}",
-  "icon": "{{(data | async)?.weather[1].icon}}"], 
-  "base": "{{(data | async)?.base}}".
-  <p></p>
-  • MAIN : [
-  "temp": {{(data | async)?.main.temp}}  &#176;C Degrees Celcius,
-  "pressure": {{(data | async)?.main.pressure}},
-  "humidity": {{(data | async)?.main.humidity}},
-  "temp_min": {{(data | async)?.main.temp_min}},
-  "temp_max": {{(data | async)?.main.temp_max}}],
-  "visibility": {{(data | async)?.visibility}}.
-  <p></p>
-  • WIND : [
-  "speed": {{(data | async)?.wind.speed}},
-  "deg": {{(data | async)?.wind.deg}}].
-  <p></p>
-  • CLOUD : [
-  "all": {{(data | async)?.clouds.all}}],
-  "dt": {{(data | async)?.dt}}.
-  <p></p>
-  • SYS : [
-  "type": {{(data | async)?.sys.type}},
-  "message": {{(data | async)?.sys.message}},
-  "country": "{{(data | async)?.sys.country}}",
-  "sunrise": {{(data | async)?.sys.sunrise}},
-  "sunset": {{(data | async)?.sys.sunset}}],
-  "id": {{(data | async)?.id}},
-  "name": "{{(data | async)?.name}}",
-  "cod": {{(data | async)?.cod}}.
+    </ion-list>
+   
+    <button ion-button (click)="getData()">Search</button>
+    • COORD : [
+    "lon": {{(data | async)?.coord.lon}},
+    "lat": {{(data | async)?.coord.lat}}].
+    <p></p>
+     • WEATHER :[
+    "id": {{(data | async)?.weather[0].id}},
+    "main": "{{(data | async)?.weather[0].main}}",
+    "description": "{{(data | async)?.weather[0].description}}",
+    "icon": "{{(data | async)?.weather[0].icon}}",
+    "base": "{{(data | async)?.base}}"].
 
-</ion-content>
+    <p></p>
+    • MAIN : [
+    "temp": {{(data | async)?.main.temp}}  &#176;C ,
+    "pressure": {{(data | async)?.main.pressure}},
+    "humidity": {{(data | async)?.main.humidity}}%,
+    "temp_min": {{(data | async)?.main.temp_min}},
+    "temp_max": {{(data | async)?.main.temp_max}}],
+    "visibility": {{(data | async)?.visibility}}.
+    <p></p>
+    • WIND : [
+    "speed": {{(data | async)?.wind.speed}},
+    "deg": {{(data | async)?.wind.deg}}].
+    <p></p>
+    • CLOUD : [
+    "all": {{(data | async)?.clouds.all}}],
+    "dt": {{(data | async)?.dt}}.
+    <p></p>
+    • SYS : [
+    "type": {{(data | async)?.sys.type}},
+    "message": {{(data | async)?.sys.message}},
+    "country": "{{(data | async)?.sys.country}}",
+    "sunrise": {{(data | async)?.sys.sunrise}},
+    "sunset": {{(data | async)?.sys.sunset}}],
+    "id": {{(data | async)?.id}},
+    "name": "{{(data | async)?.name}}",
+    "cod": {{(data | async)?.cod}}.
+    <p></p>
+   </ion-content>
+   
+   
