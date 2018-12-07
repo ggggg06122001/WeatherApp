@@ -1,13 +1,4 @@
-<ion-header>
-    <ion-navbar>
-      <ion-title>
-          <h1 style="color:black">Weather</h1>
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-   <ion-content padding>
-
+ion-content padding>
     <ion-searchbar (ionInput)="getcity($event)" placeholder="Search Place"></ion-searchbar>
     <ion-list>
       <ion-item *ngFor="let item of citysearch" (click)="SearchCity(item.id)">
@@ -16,16 +7,7 @@
 
     </ion-list>
    
-    <button ion-button (click)="getData()">Search</button> 
-     <p></p>
-   <font size="+2.5">•NAME: {{(data | async)?.name}}</font>.
-   <p></p>
-   <font size="+2.5">•COUNTRY: {{(data | async)?.sys.country}}</font>.
-
-
-
-<p></p>
-
+    <button ion-button (click)="getData()">Search</button>
     • COORD : [
     "lon": {{(data | async)?.coord.lon}},
     "lat": {{(data | async)?.coord.lat}}].
@@ -38,13 +20,12 @@
     "base": "{{(data | async)?.base}}"].
 
     <p></p>
-    
     • MAIN : [
     "temp": {{(data | async)?.main.temp}}  &#176;C ,
     "pressure": {{(data | async)?.main.pressure}},
     "humidity": {{(data | async)?.main.humidity}}%,
-    "temp_min": {{(data | async)?.main.temp_min}} &#176;C,
-    "temp_max": {{(data | async)?.main.temp_max}}] &#176;C,
+    "temp_min": {{(data | async)?.main.temp_min}},
+    "temp_max": {{(data | async)?.main.temp_max}}],
     "visibility": {{(data | async)?.visibility}}.
     <p></p>
     • WIND : [
@@ -58,9 +39,11 @@
     • SYS : [
     "type": {{(data | async)?.sys.type}},
     "message": {{(data | async)?.sys.message}},
+    "country": "{{(data | async)?.sys.country}}",
     "sunrise": {{(data | async)?.sys.sunrise}},
     "sunset": {{(data | async)?.sys.sunset}}],
     "id": {{(data | async)?.id}},
+    "name": "{{(data | async)?.name}}",
     "cod": {{(data | async)?.cod}}.
     <p></p>
    </ion-content>

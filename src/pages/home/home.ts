@@ -24,11 +24,14 @@ import { Observable } from 'rxjs/Observable';
    })
   
  }
+
 getcity(event){
   var query = event.target.value;
   this.citysearch = this.city.filter((item) => {
     return (item.name.toLowerCase().indexOf(query.toLowerCase()) > -1);
-  })
+  }
+  
+  )
   console.log(this.citysearch)
   this.citysearch= this.citysearch.slice(0,5);
 }
@@ -54,5 +57,6 @@ SearchCity(id){
       })
      }
    }
+   
    
 
